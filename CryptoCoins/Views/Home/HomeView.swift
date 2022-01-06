@@ -12,8 +12,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             // MARK: - Background
-            Color.theme.background
-                .ignoresSafeArea()
+            BackgroundView()
             
             VStack {
                 // MARK: - HeaderHomeView
@@ -36,9 +35,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            HomeView()
-                .navigationBarHidden(true)
+        Group {
+            NavigationView {
+                HomeView()
+                    .navigationBarHidden(true)
+            }
         }
     }
 }
