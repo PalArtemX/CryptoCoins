@@ -18,11 +18,10 @@ struct BackgroundView: View {
                             HStack {
                                 ForEach(0..<10) { _ in
                                     RoundedRectangle(cornerRadius: 15)
-                                        .stroke(lineWidth: 3)
-                                        .foregroundColor(.accentColor)
+                                        .stroke(lineWidth: 10)
+                                        .foregroundColor(Color.theme.background)
                                         .frame(width: 100, height: 100)
                                         .rotationEffect(Angle(degrees: 45))
-                                        .opacity(0.07)
                                 }
                             }
                         }
@@ -46,6 +45,10 @@ struct BackgroundView: View {
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView()
+        Group {
+            BackgroundView()
+            BackgroundView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
