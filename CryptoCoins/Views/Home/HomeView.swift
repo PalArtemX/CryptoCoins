@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject private var vm: HomeViewModel
+    
     var body: some View {
         ZStack {
             // MARK: - Background
@@ -17,6 +19,21 @@ struct HomeView: View {
             VStack {
                 // MARK: - HeaderHomeView
                 HeaderHomeView()
+                
+                // MARK: - Column Titles
+                ColumnTitlesView()
+                
+                // MARK: - List Coins
+                if !vm.showPortfolio {
+                    ListCoinsView()
+                        .transition(.move(edge: .leading))
+                }
+                
+                // MARK: - List Portfolio
+                if vm.showPortfolio {
+                    ListPortfolioCoinsView()
+                        .transition(.move(edge: .trailing))
+                }
                 
                 Spacer(minLength: 0)
             }
@@ -40,6 +57,7 @@ struct HomeView_Previews: PreviewProvider {
                 HomeView()
                     .navigationBarHidden(true)
             }
+            .environmentObject(HomeViewModel())
         }
     }
 }

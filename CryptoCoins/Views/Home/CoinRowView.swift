@@ -35,8 +35,10 @@ struct CoinRowView: View {
             if showHoldingsColumn {
                 VStack(alignment: .trailing) {
                     Text(coin.currentHoldingsValue.asCurrencyWith2Decimals())
+                        .font(.footnote)
                         .bold()
                     Text((coin.currentHoldings ?? 0).asPercentString())
+                        .font(.footnote)
                 }
                 
             }
