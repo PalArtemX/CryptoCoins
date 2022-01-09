@@ -20,7 +20,7 @@ struct CoinRowView: View {
                 .frame(minWidth: 30)
             
             // MARK: - Logo
-            Circle()
+            ImageCoinView(coin: coin)
                 .frame(width: 30, height: 30)
             
             // MARK: - Symbol
