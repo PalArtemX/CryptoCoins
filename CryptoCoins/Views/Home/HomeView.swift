@@ -20,6 +20,9 @@ struct HomeView: View {
                 // MARK: - HeaderHomeView
                 HeaderHomeView()
                 
+                // MARK: - SearchBarView
+                SearchBarView(textfield: $vm.searchText)
+                
                 // MARK: - Column Titles
                 ColumnTitlesView()
                 

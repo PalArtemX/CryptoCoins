@@ -29,6 +29,8 @@
 		F8571A582789A73F0000B42B /* ListPortfolioCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8571A572789A73F0000B42B /* ListPortfolioCoinsView.swift */; };
 		F8AC06492786FE2E00CBCE92 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC06482786FE2E00CBCE92 /* BackgroundView.swift */; };
 		F8EAC510278B135A00D7C031 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */; };
+		F8EAC512278B906D00D7C031 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC511278B906D00D7C031 /* SearchBarView.swift */; };
+		F8EAC514278B97B100D7C031 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC513278B97B100D7C031 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		F8571A572789A73F0000B42B /* ListPortfolioCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPortfolioCoinsView.swift; sourceTree = "<group>"; };
 		F8AC06482786FE2E00CBCE92 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		F8EAC511278B906D00D7C031 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		F8EAC513278B97B100D7C031 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				F8217D2C27861AC600C9C41B /* Color.swift */,
 				F84E6CCE2788881200827C0C /* PreviewProvider.swift */,
 				F84E6CD027888C3E00827C0C /* Double.swift */,
+				F8EAC513278B97B100D7C031 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				F8571A552789A6AE0000B42B /* ListCoinsView.swift */,
 				F8571A572789A73F0000B42B /* ListPortfolioCoinsView.swift */,
 				F8219F8B2789A8FE0028CBC5 /* ColumnTitlesView.swift */,
+				F8EAC511278B906D00D7C031 /* SearchBarView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -273,9 +279,11 @@
 				F8EAC510278B135A00D7C031 /* LocalFileManager.swift in Sources */,
 				F8AC06492786FE2E00CBCE92 /* BackgroundView.swift in Sources */,
 				F8217D3427861D2300C9C41B /* HomeView.swift in Sources */,
+				F8EAC512278B906D00D7C031 /* SearchBarView.swift in Sources */,
 				F8219F94278B01D00028CBC5 /* ImageCoinView.swift in Sources */,
 				F8217D1E2786165500C9C41B /* CryptoCoinsApp.swift in Sources */,
 				F8217D3827861F9200C9C41B /* ButtonCircleView.swift in Sources */,
+				F8EAC514278B97B100D7C031 /* UIApplication.swift in Sources */,
 				F8219F96278B021E0028CBC5 /* ImageCoinViewModel.swift in Sources */,
 				F8217D3C2786271000C9C41B /* HeaderHomeView.swift in Sources */,
 				F8217D2D27861AC600C9C41B /* Color.swift in Sources */,
