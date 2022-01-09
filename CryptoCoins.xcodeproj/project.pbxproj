@@ -28,6 +28,7 @@
 		F8571A562789A6AE0000B42B /* ListCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8571A552789A6AE0000B42B /* ListCoinsView.swift */; };
 		F8571A582789A73F0000B42B /* ListPortfolioCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8571A572789A73F0000B42B /* ListPortfolioCoinsView.swift */; };
 		F8AC06492786FE2E00CBCE92 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AC06482786FE2E00CBCE92 /* BackgroundView.swift */; };
+		F8EAC510278B135A00D7C031 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		F8571A552789A6AE0000B42B /* ListCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinsView.swift; sourceTree = "<group>"; };
 		F8571A572789A73F0000B42B /* ListPortfolioCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPortfolioCoinsView.swift; sourceTree = "<group>"; };
 		F8AC06482786FE2E00CBCE92 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				F8219F912789E4350028CBC5 /* NetworkingManager.swift */,
+				F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				F8219F8F2789AD170028CBC5 /* CoinDataService.swift in Sources */,
 				F8571A532789A2B60000B42B /* HomeViewModel.swift in Sources */,
 				F8219F922789E4350028CBC5 /* NetworkingManager.swift in Sources */,
+				F8EAC510278B135A00D7C031 /* LocalFileManager.swift in Sources */,
 				F8AC06492786FE2E00CBCE92 /* BackgroundView.swift in Sources */,
 				F8217D3427861D2300C9C41B /* HomeView.swift in Sources */,
 				F8219F94278B01D00028CBC5 /* ImageCoinView.swift in Sources */,
