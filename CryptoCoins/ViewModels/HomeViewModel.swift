@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published var coins: [Coin] = []
     @Published var portfolioCoins: [Coin] = []
     @Published var showPortfolio = false
+    @Published var showSheetPortfolio = false
     @Published var searchText = ""
     
     private let coinDataService = CoinDataService()

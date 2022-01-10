@@ -15,7 +15,7 @@ struct HomeView: View {
         ZStack {
             // MARK: - Background
             BackgroundView()
-            
+
             VStack {
                 // MARK: - HeaderHomeView
                 HeaderHomeView()
@@ -43,6 +43,10 @@ struct HomeView: View {
                 
                 Spacer(minLength: 0)
             }
+        }
+        .sheet(isPresented: $vm.showSheetPortfolio) {
+            PortfolioView()
+                .environmentObject(vm)
         }
     }
 }

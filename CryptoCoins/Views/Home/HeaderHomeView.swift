@@ -15,7 +15,11 @@ struct HeaderHomeView: View {
         HStack {
             ButtonCircleView(systemName: vm.showPortfolio ? "plus" : "info")
                 .animation(.none, value: vm.showPortfolio)
-                
+                .onTapGesture {
+                    if vm.showPortfolio {
+                        vm.showSheetPortfolio.toggle()
+                    }
+                }
             
             Spacer()
             
