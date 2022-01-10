@@ -35,7 +35,7 @@ struct ButtonCircleView_Previews: PreviewProvider {
         Group {
             ButtonCircleView(systemName: "plus")
                 .previewLayout(.sizeThatFits)
-            .padding()
+                .padding()
             ButtonCircleView(systemName: "heart")
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
