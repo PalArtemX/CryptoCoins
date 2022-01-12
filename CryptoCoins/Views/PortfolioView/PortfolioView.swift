@@ -12,19 +12,20 @@ struct PortfolioView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var vm: HomeViewModel
     
+    @State private var showCheckmark = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading, spacing: 0.0) {
+                VStack(alignment: .leading) {
+                    // MARK: - SearchBarView
                     SearchBarView(textfield: $vm.searchText)
                     
-                    ScrollView(.horizontal, showsIndicators: true) {
-                        LazyHStack {
-                            ForEach(vm.coins) {
-                                Text($0.symbol.uppercased())
-                            }
-                        }
-                    }
+                    // MARK: - CoinLogoListView
+                    CoinLogoListView()
+                    
+                    // MARK: - InputSectionView
+                    InputSectionView()
                 }
             }
             .navigationTitle("Edit Portfolio")
@@ -33,6 +34,9 @@ struct PortfolioView: View {
                     ButtonXmarkView {
                         dismiss()
                     }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    ButtonCheckmarkView()
                 }
             }
         }

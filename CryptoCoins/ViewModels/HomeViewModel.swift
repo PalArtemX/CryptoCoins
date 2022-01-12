@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class HomeViewModel: ObservableObject {
     
@@ -18,6 +19,9 @@ class HomeViewModel: ObservableObject {
     @Published var showPortfolio = false
     @Published var showSheetPortfolio = false
     @Published var searchText = ""
+    @Published var selectedCoinPortfolio: Coin? = nil
+    @Published var quantityTextfieldPortfolio = ""
+    @Published var showCheckmarkPortfolio = false
     
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
@@ -80,6 +84,47 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellable)
         
+    }
+    
+    
+    // MARK: func
+    // MARK: - getCurrentValue
+    func getCurrentValue() -> Double {
+        if let quantity = Double(quantityTextfieldPortfolio) {
+            return  quantity * (selectedCoinPortfolio?.currentPrice ?? 0)
+        }
+        return 0
+    }
+    
+    // MARK: - saveButtonPortfolio
+    func saveButtonPortfolio() {
+        guard let coin = selectedCoinPortfolio else { return }
+        // save to portfolio
+        
+        
+        // show checkmark
+        withAnimation(.easeIn) {
+            showCheckmarkPortfolio = true
+            removeSelectionCoinPortfolio()
+        }
+        
+        // hide keyboard
+        UIApplication.shared.endEditing()
+        
+        // hide checkmark
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation(.easeOut) {
+                self.showCheckmarkPortfolio = false
+            }
+        }
+        
+        
+    }
+    
+    // MARK: - removeSelectionCoinPortfolio
+    func removeSelectionCoinPortfolio() {
+        selectedCoinPortfolio = nil
+        searchText = ""
     }
     
     
