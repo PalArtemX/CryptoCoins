@@ -33,7 +33,7 @@ class HomeViewModel: ObservableObject {
     }
     
     
-    // MARK: - FUNCIONS
+    // MARK: - FUNCTIONS
     // MARK: - addSubscribers
     func addSubscribers() {
         

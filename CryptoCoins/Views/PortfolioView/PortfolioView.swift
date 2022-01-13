@@ -12,8 +12,6 @@ struct PortfolioView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var vm: HomeViewModel
     
-    @State private var showCheckmark = false
-    
     var body: some View {
         NavigationView {
             ScrollView {

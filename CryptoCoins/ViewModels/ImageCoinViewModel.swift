@@ -24,6 +24,7 @@ class ImageCoinViewModel: ObservableObject {
         self.isLoading = true
     }
     
+    // MARK: - FUNCTIONS
     private func addSubscribers() {
         dataService.$image
             .sink { [weak self] _ in
