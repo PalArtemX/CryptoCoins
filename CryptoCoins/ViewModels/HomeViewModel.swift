@@ -12,25 +12,28 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     
     @Published var statistics: [Statistic] = []
-    
-    
     @Published var coins: [Coin] = []
     @Published var portfolioCoins: [Coin] = []
+    @Published var searchText = ""
+    
     @Published var showPortfolio = false
     @Published var showSheetPortfolio = false
-    @Published var searchText = ""
     @Published var selectedCoinPortfolio: Coin? = nil
     @Published var quantityTextfieldPortfolio = ""
     @Published var showCheckmarkPortfolio = false
     
+    
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
+    private let portfolioDataService = PortfolioDataService()
     private var cancellable = Set<AnyCancellable>()
     
     init() {
         addSubscribers()
     }
     
+    
+    // MARK: - FUNCIONS
     // MARK: - addSubscribers
     func addSubscribers() {
         
@@ -84,10 +87,30 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellable)
         
+        // UPDATES PORTFOLIO
+        $coins
+            .combineLatest(portfolioDataService.$saveEntities)
+            .map { (coinModels, portfolioEntities) -> [Coin] in
+                coinModels
+                    .compactMap { (coin) -> Coin? in
+                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(amount: entity.amount)
+                    }
+            }
+            .sink { [weak self] returnedCoin in
+                self?.portfolioCoins = returnedCoin
+            }
+            .store(in: &cancellable)
+        
     }
     
+    // MARK: - updatePortfolio
+    func updatePortfolio(coin: Coin, amount: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    }
     
-    // MARK: func
     // MARK: - getCurrentValue
     func getCurrentValue() -> Double {
         if let quantity = Double(quantityTextfieldPortfolio) {
@@ -98,9 +121,13 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - saveButtonPortfolio
     func saveButtonPortfolio() {
-        guard let coin = selectedCoinPortfolio else { return }
+        guard
+            let coin = selectedCoinPortfolio,
+            let amount = Double(quantityTextfieldPortfolio) else {
+                return
+            }
         // save to portfolio
-        
+        updatePortfolio(coin: coin, amount: amount)
         
         // show checkmark
         withAnimation(.easeIn) {
@@ -127,5 +154,15 @@ class HomeViewModel: ObservableObject {
         searchText = ""
     }
     
+    // MARK: - updateSelectedCoin
+    func updateSelectedCoin(coin: Coin) {
+        selectedCoinPortfolio = coin
+        
+        if let portfolioCoin = portfolioCoins.first(where: { $0.id == coin.id }), let amount = portfolioCoin.currentHoldings {
+            quantityTextfieldPortfolio = "\(amount)"
+        } else {
+            quantityTextfieldPortfolio = ""
+        }
+    }
     
 }

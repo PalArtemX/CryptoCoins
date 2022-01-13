@@ -12,6 +12,12 @@ struct CryptoCoinsApp: App {
     
     @StateObject var vm = HomeViewModel()
     
+    init() {
+        // title color changes NavigationTitle
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.accentColor)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor(Color.accentColor)]
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {

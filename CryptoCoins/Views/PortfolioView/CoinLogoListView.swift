@@ -14,12 +14,12 @@ struct CoinLogoListView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(vm.coins) { coin in
+                ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.coins) { coin in
                     CoinLogoView(coin: coin)
                         .ignoresSafeArea()
                         .onTapGesture {
                             withAnimation(.easeIn) {
-                                vm.selectedCoinPortfolio = coin
+                                vm.updateSelectedCoin(coin: coin)
                             }
                         }
                         .background(

@@ -39,6 +39,11 @@ struct PortfolioView: View {
                     ButtonCheckmarkView()
                 }
             }
+            .onChange(of: vm.searchText) { newValue in
+                if newValue == "" {
+                    vm.removeSelectionCoinPortfolio()
+                }
+            }
         }
     }
 }
