@@ -13,7 +13,7 @@ struct HeaderHomeView: View {
     
     var body: some View {
         HStack {
-            ButtonCircleView(systemName: vm.showPortfolio ? "plus" : "info")
+            ButtonCircleView(systemName: vm.showPortfolio ? "plus.circle" : "info.circle")
                 .animation(.none, value: vm.showPortfolio)
                 .onTapGesture {
                     if vm.showPortfolio {
@@ -31,7 +31,7 @@ struct HeaderHomeView: View {
             
             Spacer()
             
-            ButtonCircleView(systemName: "chevron.right")
+            ButtonCircleView(systemName: "chevron.right.circle")
                 .rotationEffect(Angle(degrees: vm.showPortfolio ? 180 : 0))
                 .onTapGesture {
                     withAnimation(.spring()) {

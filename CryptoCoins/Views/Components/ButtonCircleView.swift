@@ -13,11 +13,15 @@ struct ButtonCircleView: View {
     
     var body: some View {
         Image(systemName: systemName)
-            .font(.headline)
+            .symbolRenderingMode(.hierarchical)
+            
+            
+            .font(.title)
             .foregroundColor(.accentColor)
             .frame(width: 50, height: 50)
             .background(.ultraThinMaterial)
             .cornerRadius(25)
+            .submitScope()
     }
 }
 

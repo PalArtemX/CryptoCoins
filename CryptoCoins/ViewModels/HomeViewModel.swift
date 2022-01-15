@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var coins: [Coin] = []
     @Published var portfolioCoins: [Coin] = []
     @Published var searchText = ""
+    @Published var isLoading = false
     
     @Published var showPortfolio = false
     @Published var showSheetPortfolio = false
@@ -37,7 +38,7 @@ class HomeViewModel: ObservableObject {
     // MARK: - addSubscribers
     func addSubscribers() {
         
-        // UPDATE COINS
+        // MARK: - UPDATE COINS
         $searchText
             .combineLatest(coinDataService.$coins)
             //.debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
@@ -59,9 +60,27 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellable)
         
-        // UPDATE MARKET DATA
+        // MARK: - UPDATES PORTFOLIO
+        $coins
+            .combineLatest(portfolioDataService.$saveEntities)
+            .map { (coinModels, portfolioEntities) -> [Coin] in
+                coinModels
+                    .compactMap { (coin) -> Coin? in
+                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(amount: entity.amount)
+                    }
+            }
+            .sink { [weak self] returnedCoin in
+                self?.portfolioCoins = returnedCoin
+            }
+            .store(in: &cancellable)
+        
+        // MARK: - UPDATE MARKET DATA
         marketDataService.$marketData
-            .map { (marketData) -> [Statistic] in
+            .combineLatest($portfolioCoins)
+            .map { (marketData, portfolioCoins) -> [Statistic] in
                 var statistics: [Statistic] = []
                 
                 guard let data = marketData else {
@@ -77,30 +96,30 @@ class HomeViewModel: ObservableObject {
                 let btcDominance = Statistic(title: "BTC Dominance", value: data.btcDominance)
                 statistics.append(btcDominance)
                 
-                let portfolio = Statistic(title: "Portfolio", value: "$0.00", percentageChange: 0)
+                // MARK: - portfolioValue
+                let portfolioValue = portfolioCoins.map({ $0.currentHoldingsValue})
+                    .reduce(0, +)
+                // previousValue
+                let previousValue = portfolioCoins.map { (coin) -> Double in
+                    let currentValue = coin.currentHoldingsValue
+                    let percentChange = coin.priceChangePercentage24H ?? 0 / 100
+                    let previousValue = currentValue / (1 + percentChange)
+                    return previousValue
+                }
+                    .reduce(0, +)
+                // percentageChange
+                let percentageChange = ((portfolioValue - previousValue) / previousValue) * 100
+                
+                let portfolio = Statistic(title: "Portfolio", value: portfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
                 statistics.append(portfolio)
+                
+                
                 
                 return statistics
             }
             .sink { [weak self] returnedStatistics in
                 self?.statistics = returnedStatistics
-            }
-            .store(in: &cancellable)
-        
-        // UPDATES PORTFOLIO
-        $coins
-            .combineLatest(portfolioDataService.$saveEntities)
-            .map { (coinModels, portfolioEntities) -> [Coin] in
-                coinModels
-                    .compactMap { (coin) -> Coin? in
-                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
-                            return nil
-                        }
-                        return coin.updateHoldings(amount: entity.amount)
-                    }
-            }
-            .sink { [weak self] returnedCoin in
-                self?.portfolioCoins = returnedCoin
+                self?.isLoading = false
             }
             .store(in: &cancellable)
         
@@ -163,6 +182,14 @@ class HomeViewModel: ObservableObject {
         } else {
             quantityTextfieldPortfolio = ""
         }
+    }
+    
+    // MARK: - reloadData
+    func reloadData() {
+        isLoading = true
+        coinDataService.getCoins()
+        marketDataService.getData()
+        HapticManager.notification(type: .success)
     }
     
 }
