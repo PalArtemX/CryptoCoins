@@ -13,12 +13,13 @@ struct SearchBarView: View {
     
     var body: some View {
         HStack {
+            // MARK: - systemName
             Image(systemName: "magnifyingglass.circle")
                 .symbolRenderingMode(.hierarchical)
                 .foregroundColor(.accentColor)
                 .font(.title)
             
-            
+            // MARK: - TextField
             TextField(text: $textfield, prompt: Text("Search by name or symbol...")) {
                 Image(systemName: "magnifyingglass.circle")
             }

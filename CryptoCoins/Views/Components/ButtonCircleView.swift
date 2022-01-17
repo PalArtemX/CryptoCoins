@@ -14,8 +14,6 @@ struct ButtonCircleView: View {
     var body: some View {
         Image(systemName: systemName)
             .symbolRenderingMode(.hierarchical)
-            
-            
             .font(.title)
             .foregroundColor(.accentColor)
             .frame(width: 50, height: 50)

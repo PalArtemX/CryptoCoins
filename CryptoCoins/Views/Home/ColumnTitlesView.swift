@@ -13,6 +13,7 @@ struct ColumnTitlesView: View {
     
     var body: some View {
         HStack {
+            // MARK: - Coin
             HStack {
                 Text("Coin")
                 Image(systemName: "chevron.down.circle")
@@ -29,6 +30,7 @@ struct ColumnTitlesView: View {
             
             Spacer()
             
+            // MARK: - Holdings
             if vm.showPortfolio {
                 HStack {
                     Text("Holdings")
@@ -45,8 +47,7 @@ struct ColumnTitlesView: View {
                 }
             }
             
-            
-            
+            // MARK: - Price
             HStack {
                 Text("Price")
                 Image(systemName: "chevron.down.circle")
@@ -62,6 +63,7 @@ struct ColumnTitlesView: View {
                     }
                 }
             
+            // MARK: - Button reloadData
             Button {
                 withAnimation(.linear(duration: 2)) {
                     vm.reloadData()
