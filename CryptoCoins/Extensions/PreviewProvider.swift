@@ -11,7 +11,7 @@ import SwiftUI
 
 extension PreviewProvider {
     
-    static var dev: DeveloperPreview {
+    static var development: DeveloperPreview {
         return DeveloperPreview.instance
     }
     

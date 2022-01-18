@@ -48,10 +48,10 @@ struct CoinLogoView: View {
 struct CoinLogoView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CoinLogoView(coin: dev.coin)
+            CoinLogoView(coin: development.coin)
                 .previewLayout(.sizeThatFits)
             .padding()
-            CoinLogoView(coin: dev.coin)
+            CoinLogoView(coin: development.coin)
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
                 .padding()

@@ -47,6 +47,7 @@
 		F8C648B42796D077009B9BB4 /* DetailLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C648B32796D077009B9BB4 /* DetailLoadingView.swift */; };
 		F8C648B62796D481009B9BB4 /* CoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C648B52796D481009B9BB4 /* CoinDetail.swift */; };
 		F8C648B82796D7ED009B9BB4 /* CoinDetailDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C648B72796D7ED009B9BB4 /* CoinDetailDataService.swift */; };
+		F8C648BA279751E1009B9BB4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C648B9279751E1009B9BB4 /* ChartView.swift */; };
 		F8EAC510278B135A00D7C031 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */; };
 		F8EAC512278B906D00D7C031 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC511278B906D00D7C031 /* SearchBarView.swift */; };
 		F8EAC514278B97B100D7C031 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC513278B97B100D7C031 /* UIApplication.swift */; };
@@ -94,6 +95,7 @@
 		F8C648B32796D077009B9BB4 /* DetailLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoadingView.swift; sourceTree = "<group>"; };
 		F8C648B52796D481009B9BB4 /* CoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetail.swift; sourceTree = "<group>"; };
 		F8C648B72796D7ED009B9BB4 /* CoinDetailDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataService.swift; sourceTree = "<group>"; };
+		F8C648B9279751E1009B9BB4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		F8EAC50F278B135A00D7C031 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		F8EAC511278B906D00D7C031 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		F8EAC513278B97B100D7C031 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				F8C648AF2796C667009B9BB4 /* DetailView.swift */,
 				F8C648B32796D077009B9BB4 /* DetailLoadingView.swift */,
+				F8C648B9279751E1009B9BB4 /* ChartView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				F88F19AE278C50AD00117F5C /* HomeStatisticView.swift in Sources */,
 				F8AC06492786FE2E00CBCE92 /* BackgroundView.swift in Sources */,
 				F88F19B2278C7E9700117F5C /* MarketDataService.swift in Sources */,
+				F8C648BA279751E1009B9BB4 /* ChartView.swift in Sources */,
 				F8217D3427861D2300C9C41B /* HomeView.swift in Sources */,
 				F8EAC512278B906D00D7C031 /* SearchBarView.swift in Sources */,
 				F8219F94278B01D00028CBC5 /* ImageCoinView.swift in Sources */,

@@ -44,10 +44,10 @@ struct ImageCoinView: View {
 struct ImageCoinView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ImageCoinView(coin: dev.coin)
+            ImageCoinView(coin: development.coin)
                 .previewLayout(.sizeThatFits)
                 .padding()
-            ImageCoinView(coin: dev.coin)
+            ImageCoinView(coin: development.coin)
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
                 .padding()

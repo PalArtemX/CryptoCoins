@@ -54,14 +54,14 @@ struct StatisticView: View {
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            StatisticView(statistic: dev.stat1)
+            StatisticView(statistic: development.stat1)
                 .previewLayout(.sizeThatFits)
                 .padding()
-            StatisticView(statistic: dev.stat3)
+            StatisticView(statistic: development.stat3)
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
                 .padding()
-            StatisticView(statistic: dev.stat2)
+            StatisticView(statistic: development.stat2)
                 .preferredColorScheme(.light)
                 .previewLayout(.sizeThatFits)
                 .padding()

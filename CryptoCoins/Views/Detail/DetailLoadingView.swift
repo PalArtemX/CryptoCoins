@@ -28,6 +28,6 @@ struct DetailLoadingView: View {
 
 struct DetailLoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailLoadingView(coin: .constant(dev.coin))
+        DetailLoadingView(coin: .constant(development.coin))
     }
 }

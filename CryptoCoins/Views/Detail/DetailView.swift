@@ -58,6 +58,19 @@ struct DetailView: View {
             .padding()
         }
         .navigationTitle(detailVM.coin.name)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                HStack {
+                    Text(detailVM.coin.symbol.uppercased())
+                        .font(.headline)
+                        .foregroundColor(.theme.secondaryText)
+                    
+                    ImageCoinView(coin: detailVM.coin)
+                        .frame(width: 25, height: 25)
+                }
+                
+            }
+        }
     }
 }
 
@@ -73,7 +86,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(coin: dev.coin)
+            DetailView(coin: development.coin)
         }
     }
 }
@@ -101,3 +114,5 @@ struct AdditionalDetailsSubview: View {
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
+
+
