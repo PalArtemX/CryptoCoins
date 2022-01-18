@@ -10,14 +10,13 @@ import SwiftUI
 struct ListCoinsView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
-    @EnvironmentObject private var detailVM: DetailViewModel
     
     var body: some View {
         List {
             ForEach(vm.coins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: false)
                     .onTapGesture {
-                        detailVM.segue(coin: coin)
+                        vm.segue(coin: coin)
                     }
             }
         }
@@ -41,6 +40,5 @@ struct ListCoinsView_Previews: PreviewProvider {
     static var previews: some View {
         ListCoinsView()
             .environmentObject(HomeViewModel())
-            .environmentObject(DetailViewModel())
     }
 }

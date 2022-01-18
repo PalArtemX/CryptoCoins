@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 
 class DetailViewModel: ObservableObject {
@@ -13,9 +14,25 @@ class DetailViewModel: ObservableObject {
     @Published var showPortfolioView = false
     @Published var selectedCoin: Coin? = nil
     
+    private let coinDetailsService: CoinDetailDataService
+    private var cancellable = Set<AnyCancellable>()
     
-    func segue(coin: Coin) {
-        selectedCoin = coin
-        showPortfolioView.toggle()
+    init(coin: Coin) {
+        self.coinDetailsService = CoinDetailDataService(coin: coin)
+        self.addSubscribers()
+    }
+    
+    
+    
+    // MARK: - Functions
+    
+    // MARK: - addSubscribers
+    private func addSubscribers() {
+        coinDetailsService.$coinDetails
+            .sink { returnedCoinDetails in
+                print("Recieved coin detail data")
+                print(returnedCoinDetails)
+            }
+            .store(in: &cancellable)
     }
 }

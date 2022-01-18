@@ -10,12 +10,15 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
-    @EnvironmentObject private var detailVM: DetailViewModel
     
     var body: some View {
         ZStack {
             // MARK: - Background
             BackgroundView()
+                .sheet(isPresented: $vm.showSheetPortfolio) {
+                    PortfolioView()
+                        .environmentObject(vm)
+                }
 
             VStack {
                 // MARK: - HeaderHomeView
@@ -45,15 +48,13 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
-        .sheet(isPresented: $vm.showSheetPortfolio) {
-            PortfolioView()
-                .environmentObject(vm)
-        }
         .background(
-            NavigationLink(isActive: $detailVM.showPortfolioView, destination: {
-                DetailLoadingView(coin: $detailVM.selectedCoin)
+            NavigationLink(isActive: $vm.showPortfolioView, destination: {
+                DetailLoadingView(coin: $vm.selectedCoin)
             }, label: { EmptyView() })
         )
+
+        
     }
 }
 
@@ -74,7 +75,6 @@ struct HomeView_Previews: PreviewProvider {
                     .navigationBarHidden(true)
             }
             .environmentObject(HomeViewModel())
-            .environmentObject(DetailViewModel())
         }
     }
 }

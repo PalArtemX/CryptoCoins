@@ -11,7 +11,6 @@ import SwiftUI
 struct CryptoCoinsApp: App {
     
     @StateObject var vm = HomeViewModel()
-    @StateObject var detailVM = DetailViewModel()
     
     init() {
         // title color changes NavigationTitle
@@ -26,7 +25,6 @@ struct CryptoCoinsApp: App {
                     .navigationBarHidden(true)
             }
             .environmentObject(vm)
-            .environmentObject(detailVM)
         }
     }
 }

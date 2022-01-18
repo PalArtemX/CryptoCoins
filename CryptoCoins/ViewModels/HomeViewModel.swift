@@ -24,6 +24,8 @@ class HomeViewModel: ObservableObject {
     @Published var showCheckmarkPortfolio = false
     @Published var sortOption: SortOption = .holdings
     
+    @Published var showPortfolioView = false
+    @Published var selectedCoin: Coin? = nil
     
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
@@ -234,5 +236,11 @@ class HomeViewModel: ObservableObject {
         default:
             return coins
         }
+    }
+    
+    // MARK: - segue
+    func segue(coin: Coin) {
+        selectedCoin = coin
+        showPortfolioView.toggle()
     }
 }
