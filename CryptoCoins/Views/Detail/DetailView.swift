@@ -20,42 +20,45 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 20.0) {
-                // MARK: - 
-                Text("")
-                    .frame(height: 150)
+            
+            VStack {
+                // MARK: - ChartView
+                ChartView(coin: detailVM.coin)
+                    .padding(.vertical)
                 
-                // MARK: - Title
-                OverviewSubview()
-                Divider()
-                
-                // MARK: - Overview Grid
-                LazyVGrid(
-                    columns: columns,
-                    alignment: .leading,
-                    spacing: spacing,
-                    pinnedViews: []) {
-                        ForEach(detailVM.overviewsStatistics) { stat in
-                            StatisticView(statistic: stat)
+                VStack(spacing: 20.0) {
+                    // MARK: - Title
+                    OverviewSubview()
+                    Divider()
+                    
+                    // MARK: - Overview Grid
+                    LazyVGrid(
+                        columns: columns,
+                        alignment: .leading,
+                        spacing: spacing,
+                        pinnedViews: []) {
+                            ForEach(detailVM.overviewsStatistics) { stat in
+                                StatisticView(statistic: stat)
+                            }
                         }
-                    }
-                
-                // MARK: - Title
-                AdditionalDetailsSubview()
-                Divider()
-                
-                // MARK: - Additional Details Grid
-                LazyVGrid(
-                    columns: columns,
-                    alignment: .leading,
-                    spacing: spacing,
-                    pinnedViews: []) {
-                        ForEach(detailVM.additionalStatistics) { stat in
-                            StatisticView(statistic: stat)
+                    
+                    // MARK: - Title
+                    AdditionalDetailsSubview()
+                    Divider()
+                    
+                    // MARK: - Additional Details Grid
+                    LazyVGrid(
+                        columns: columns,
+                        alignment: .leading,
+                        spacing: spacing,
+                        pinnedViews: []) {
+                            ForEach(detailVM.additionalStatistics) { stat in
+                                StatisticView(statistic: stat)
+                            }
                         }
-                    }
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(detailVM.coin.name)
         .toolbar {
