@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
+    @EnvironmentObject private var detailVM: DetailViewModel
     
     var body: some View {
         ZStack {
@@ -48,6 +49,11 @@ struct HomeView: View {
             PortfolioView()
                 .environmentObject(vm)
         }
+        .background(
+            NavigationLink(isActive: $detailVM.showPortfolioView, destination: {
+                DetailLoadingView(coin: $detailVM.selectedCoin)
+            }, label: { EmptyView() })
+        )
     }
 }
 
@@ -68,6 +74,7 @@ struct HomeView_Previews: PreviewProvider {
                     .navigationBarHidden(true)
             }
             .environmentObject(HomeViewModel())
+            .environmentObject(DetailViewModel())
         }
     }
 }

@@ -223,7 +223,7 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    // MARK: -
+    // MARK: - sortPortfolioCoinsIfNeeded
     private func sortPortfolioCoinsIfNeeded(coins: [Coin]) -> [Coin] {
         // will only sort by holdings or reversed holdings if needed
         switch sortOption {
