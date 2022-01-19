@@ -16,6 +16,7 @@ struct ColumnTitlesView: View {
             // MARK: - Coin
             HStack {
                 Text("Coin")
+                    .font(.subheadline)
                 Image(systemName: "chevron.down.circle")
                     .symbolRenderingMode(.hierarchical)
                     .font(.headline)
@@ -34,6 +35,7 @@ struct ColumnTitlesView: View {
             if vm.showPortfolio {
                 HStack {
                     Text("Holdings")
+                        .font(.subheadline)
                     Image(systemName: "chevron.down.circle")
                         .symbolRenderingMode(.hierarchical)
                         .font(.headline)
@@ -50,6 +52,7 @@ struct ColumnTitlesView: View {
             // MARK: - Price
             HStack {
                 Text("Price")
+                    .font(.subheadline)
                 Image(systemName: "chevron.down.circle")
                     .symbolRenderingMode(.hierarchical)
                     .font(.headline)
@@ -71,7 +74,7 @@ struct ColumnTitlesView: View {
             } label: {
                 Image(systemName: "arrow.clockwise.circle")
                     .symbolRenderingMode(.hierarchical)
-                    .font(.title2)
+                    .font(.title)
             }
             .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0), anchor: .center)
 
