@@ -53,7 +53,16 @@ struct HeaderHomeView: View {
 
 struct HeaderHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderHomeView()
-            .environmentObject(HomeViewModel())
+        Group {
+            HeaderHomeView()
+                .previewLayout(.sizeThatFits)
+                .environmentObject(HomeViewModel())
+            .padding(.vertical)
+            HeaderHomeView()
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.dark)
+                .environmentObject(HomeViewModel())
+                .padding(.vertical)
+        }
     }
 }
