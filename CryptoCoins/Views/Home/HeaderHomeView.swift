@@ -18,6 +18,8 @@ struct HeaderHomeView: View {
                 .onTapGesture {
                     if vm.showPortfolio {
                         vm.showSheetPortfolio.toggle()
+                    } else {
+                        vm.showSheetSettingsView.toggle()
                     }
                 }
             
