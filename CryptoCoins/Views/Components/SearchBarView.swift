@@ -27,9 +27,10 @@ struct SearchBarView: View {
             .textFieldStyle(.roundedBorder)
             .overlay(
                 Image(systemName: "xmark.circle")
+                    .padding()
+                    .font(.title)
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.red)
-                    .padding()
                     .opacity(textfield.isEmpty ? 0.0 : 1.0)
                     .onTapGesture {
                         // Collapsing the keyboard when clicking on the xmark
@@ -37,6 +38,7 @@ struct SearchBarView: View {
                         
                         textfield = ""
                     }
+                   
                 , alignment: .trailing
             )
             

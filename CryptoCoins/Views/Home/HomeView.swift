@@ -41,8 +41,18 @@ struct HomeView: View {
                 
                 // MARK: - List Portfolio
                 if vm.showPortfolio {
-                    ListPortfolioCoinsView()
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                            Text("Click on the plus button to add coins to the portfolio!")
+                                .font(.callout)
+                                .foregroundColor(.theme.secondaryText)
+                                .multilineTextAlignment(.center)
+                                .padding(70)
+                        } else {
+                            ListPortfolioCoinsView()
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
                 
                 Spacer(minLength: 0)
