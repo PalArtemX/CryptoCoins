@@ -11,6 +11,8 @@ import SwiftUI
 // MARK: - DetailView
 struct DetailView: View {
     @StateObject var detailVM: DetailViewModel
+    @State private var showFullDescription = false
+    
     private let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible())]
     private let spacing: CGFloat = 30
     
@@ -30,6 +32,31 @@ struct DetailView: View {
                     // MARK: - Title
                     OverviewSubview()
                     Divider()
+                    
+                    // MARK: - Description
+                    ZStack {
+                        if let coinDescription = detailVM.coinDescription, !coinDescription.isEmpty {
+                            VStack(alignment: .leading) {
+                                Text(coinDescription)
+                                    .lineLimit(showFullDescription ? nil : 3)
+                                    .font(.callout)
+                                    .foregroundColor(.theme.secondaryText)
+                                
+                                Button {
+                                    withAnimation(.easeInOut) {
+                                        showFullDescription.toggle()
+                                    }
+                                } label: {
+                                    Image(systemName: showFullDescription ? "arrow.up.to.line.compact" : "arrow.down.to.line.compact")
+                                        .symbolRenderingMode(.hierarchical)
+                                    
+                                    Text(showFullDescription ? "Less" : "Read more")
+                                        .fontWeight(.bold)
+                                }
+                                .font(.caption)
+                            }
+                        }
+                    }
                     
                     // MARK: - Overview Grid
                     LazyVGrid(
@@ -56,6 +83,27 @@ struct DetailView: View {
                                 StatisticView(statistic: stat)
                             }
                         }
+                    
+                    // MARK: - Website
+                    VStack(alignment: .leading, spacing: 20.0) {
+                        if let webSiteString = detailVM.webSiteURL, let url = URL(string: webSiteString) {
+                            Link(destination: url) {
+                                Image(systemName: "network")
+                                    .symbolRenderingMode(.hierarchical)
+                                Text("Website")
+                            }
+                        }
+                        
+                        if let redditString = detailVM.redditURL, let url = URL(string: redditString) {
+                            Link(destination: url) {
+                                Image(systemName: "person.3.sequence")
+                                    .symbolRenderingMode(.hierarchical)
+                                Text("Reddit")
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
                 }
                 .padding()
             }
