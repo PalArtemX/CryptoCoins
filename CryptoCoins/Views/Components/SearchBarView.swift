@@ -16,7 +16,7 @@ struct SearchBarView: View {
             // MARK: - systemName
             Image(systemName: "magnifyingglass.circle")
                 .symbolRenderingMode(.hierarchical)
-                .foregroundColor(.accentColor)
+                .foregroundColor(.theme.accent)
                 .font(.title)
             
             // MARK: - TextField

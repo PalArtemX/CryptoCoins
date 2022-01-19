@@ -21,7 +21,7 @@ struct StatisticView: View {
             // MARK: - Value
             Text(statistic.value)
                 .font(.headline)
-                .foregroundColor(.accentColor)
+                .foregroundColor(.theme.accent)
             
             // MARK: - Percentage Change
             HStack(spacing: 1.0) {

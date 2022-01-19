@@ -26,7 +26,7 @@ struct HeaderHomeView: View {
             Text(vm.showPortfolio ? "Portfolio" : "Live Prices")
                 .font(.headline)
                 .fontWeight(.heavy)
-                .foregroundColor(.accentColor)
+                .foregroundColor(.theme.accent)
                 .animation(.none, value: vm.showPortfolio)
             
             Spacer()

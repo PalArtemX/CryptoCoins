@@ -150,7 +150,7 @@ struct OverviewSubview: View {
         Text("Overview")
             .font(.title)
             .bold()
-            .foregroundColor(.accentColor)
+            .foregroundColor(.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
@@ -161,7 +161,7 @@ struct AdditionalDetailsSubview: View {
         Text("Additional Details")
             .font(.title)
             .bold()
-            .foregroundColor(.accentColor)
+            .foregroundColor(.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

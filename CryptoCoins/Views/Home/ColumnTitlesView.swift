@@ -77,7 +77,7 @@ struct ColumnTitlesView: View {
 
         }
         .font(.caption)
-        .foregroundColor(.theme.secondaryText)
+        .foregroundColor(.accentColor)
         .padding(.horizontal)
     }
 }

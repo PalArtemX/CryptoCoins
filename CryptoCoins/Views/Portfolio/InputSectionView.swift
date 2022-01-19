@@ -44,7 +44,7 @@ struct InputSectionView: View {
             .animation(.none, value: vm.selectedCoinPortfolio?.currentPrice)
             .padding()
             .font(.headline)
-            .foregroundColor(.accentColor)
+            .foregroundColor(.theme.accent)
         }
     }
 }
