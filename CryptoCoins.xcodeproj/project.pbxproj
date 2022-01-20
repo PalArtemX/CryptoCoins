@@ -24,6 +24,7 @@
 		F835FE1C27981838008171FB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835FE1B27981838008171FB /* String.swift */; };
 		F835FE1F27986D8E008171FB /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835FE1E27986D8E008171FB /* InfoView.swift */; };
 		F835FE222799977E008171FB /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835FE212799977E008171FB /* LogoView.swift */; };
+		F835FE2427999E13008171FB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F835FE2327999E13008171FB /* Launch Screen.storyboard */; };
 		F84E6CCB2788825000827C0C /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6CCA2788825000827C0C /* Coin.swift */; };
 		F84E6CCD2788877B00827C0C /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6CCC2788877B00827C0C /* CoinRowView.swift */; };
 		F84E6CCF2788881200827C0C /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6CCE2788881200827C0C /* PreviewProvider.swift */; };
@@ -77,6 +78,7 @@
 		F835FE1E27986D8E008171FB /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F835FE2027989BE0008171FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F835FE212799977E008171FB /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		F835FE2327999E13008171FB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F84E6CCA2788825000827C0C /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		F84E6CCC2788877B00827C0C /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
 		F84E6CCE2788881200827C0C /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				F835FE1D27986D3C008171FB /* InfoView */,
 				F8217D3527861F2700C9C41B /* Components */,
 				F8AC06472786FE0600CBCE92 /* Background */,
+				F835FE2327999E13008171FB /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F835FE2427999E13008171FB /* Launch Screen.storyboard in Resources */,
 				F8217D252786165600C9C41B /* Preview Assets.xcassets in Resources */,
 				F8217D222786165600C9C41B /* Assets.xcassets in Resources */,
 			);
@@ -550,6 +554,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = CryptoCoins;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -581,6 +586,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = CryptoCoins;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
