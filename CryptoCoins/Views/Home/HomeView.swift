@@ -58,7 +58,7 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
             .sheet(isPresented: $vm.showSheetSettingsView, onDismiss: nil) {
-                SettingsView()
+                InfoView()
             }
         }
         .background(

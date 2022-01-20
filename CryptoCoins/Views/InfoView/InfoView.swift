@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  InfoView.swift
 //  CryptoCoins
 //
 //  Created by Artem Paliutin on 19.01.2022.
@@ -7,15 +7,29 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct InfoView: View {
     
     @Environment(\.dismiss) var dismiss
     let gitHubURL = URL(string: "https://github.com/PalArtemX")!
     let coinGeckoURL = URL(string: "https://github.com/PalArtemX")!
+    let version = "Version 1.0, Build 1"
+    
     
     var body: some View {
         NavigationView {
             VStack {
+                // MARK: - Logo
+                LogoView()
+                    .frame(height: 200)
+                Text("CryptoCoin")
+                    .font(.headline)
+                    .foregroundColor(.theme.accent)
+                
+                // MARK: - Version
+                Text(version)
+                    .font(.callout)
+                    .foregroundColor(.theme.secondaryText)
+                    .padding()
                 
                 // MARK: - List
                 List {
@@ -63,6 +77,7 @@ struct SettingsView: View {
                 }
                 .listStyle(.plain)
                 
+               
                 
                 // MARK: - Footer
                 VStack {
@@ -77,7 +92,7 @@ struct SettingsView: View {
                 
             }
             .padding(.vertical)
-            .navigationTitle("Settings")
+            .navigationTitle("Informations")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     ButtonXmarkView { dismiss() }
@@ -96,8 +111,8 @@ struct SettingsView: View {
 
 
 
-struct SettingsView_Previews: PreviewProvider {
+struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        InfoView()
     }
 }
