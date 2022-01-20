@@ -15,7 +15,7 @@ struct HomeView: View {
         ZStack {
             // MARK: - Background
             BackgroundView()
-                .sheet(isPresented: $vm.showSheetPortfolio) {
+                .sheet(isPresented: $vm.showSheetPortfolioView) {
                     PortfolioView()
                         .environmentObject(vm)
                 }
@@ -57,7 +57,7 @@ struct HomeView: View {
                 
                 Spacer(minLength: 0)
             }
-            .sheet(isPresented: $vm.showSheetSettingsView, onDismiss: nil) {
+            .sheet(isPresented: $vm.showSheetInfoView, onDismiss: nil) {
                 InfoView()
             }
         }

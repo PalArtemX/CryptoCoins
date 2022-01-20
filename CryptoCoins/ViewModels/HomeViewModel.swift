@@ -17,9 +17,9 @@ class HomeViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var isLoading = false
     
-    @Published var showSheetSettingsView = false
+    @Published var showSheetInfoView = false
     @Published var showPortfolio = false
-    @Published var showSheetPortfolio = false
+    @Published var showSheetPortfolioView = false
     @Published var selectedCoinPortfolio: Coin? = nil
     @Published var quantityTextfieldPortfolio = ""
     @Published var showCheckmarkPortfolio = false

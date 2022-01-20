@@ -13,18 +13,20 @@ struct HeaderHomeView: View {
     
     var body: some View {
         HStack {
+            // MARK: - ButtonCircleView
             ButtonCircleView(systemName: vm.showPortfolio ? "plus.circle" : "info.circle")
                 .animation(.none, value: vm.showPortfolio)
                 .onTapGesture {
                     if vm.showPortfolio {
-                        vm.showSheetPortfolio.toggle()
+                        vm.showSheetPortfolioView.toggle()
                     } else {
-                        vm.showSheetSettingsView.toggle()
+                        vm.showSheetInfoView.toggle()
                     }
                 }
             
             Spacer()
             
+            // MARK: - Header
             Text(vm.showPortfolio ? "Portfolio" : "Live Prices")
                 .font(.headline)
                 .fontWeight(.heavy)
@@ -33,6 +35,7 @@ struct HeaderHomeView: View {
             
             Spacer()
             
+            // MARK: - ButtonCircleView
             ButtonCircleView(systemName: "chevron.right.circle")
                 .rotationEffect(Angle(degrees: vm.showPortfolio ? 180 : 0))
                 .onTapGesture {

@@ -16,6 +16,7 @@ struct InputSectionView: View {
         // for the preview, you need to replace it with an equivalent nil (==)
         if vm.selectedCoinPortfolio != nil {
             VStack {
+                // MARK: - Current price
                 HStack {
                     Text("Current price of \(vm.selectedCoinPortfolio?.symbol.uppercased() ?? ""): ")
                     Spacer()
@@ -24,6 +25,7 @@ struct InputSectionView: View {
                 
                 Divider()
                 
+                // MARK: - Amount holding
                 HStack {
                     Text("Amount holding:")
                     Spacer()
@@ -34,7 +36,8 @@ struct InputSectionView: View {
                 }
                 
                 Divider()
-                
+                 
+                // MARK: - Current Value
                 HStack {
                     Text("Current Value:")
                     Spacer()
