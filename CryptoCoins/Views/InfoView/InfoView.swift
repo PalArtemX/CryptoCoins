@@ -12,7 +12,7 @@ struct InfoView: View {
     @Environment(\.dismiss) var dismiss
     let gitHubURL = URL(string: "https://github.com/PalArtemX")!
     let coinGeckoURL = URL(string: "https://www.coingecko.com")!
-    let version = "Version 1.0, Build 1"
+    let version = "Version 1.0.1, Build 1"
     @EnvironmentObject private var vm: HomeViewModel
     
     
