@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published var portfolioCoins: [Coin] = []
     @Published var searchText = ""
     @Published var isLoading = false
+    @Published var showSheetSecretView = false
     
     @Published var showSheetInfoView = false
     @Published var showPortfolio = false
